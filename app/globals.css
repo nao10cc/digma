@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-paper: #fafaf7;
+  --color-paper-tint: #f1f4f0;
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #5a5a5a;
+  --color-navy: #1c2c4c;
+  --color-rokushou: #5a8a7a;
+  --color-rule: #d8d4cc;
+
+  --font-serif-jp: var(--font-shippori-mincho), 'Shippori Mincho B1', serif;
+  --font-sans-jp: var(--font-noto-sans-jp), 'Noto Sans JP', sans-serif;
+  --font-serif-en: var(--font-cormorant-garamond), 'Cormorant Garamond', serif;
+  --font-sans-en: var(--font-inter), 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans-jp);
+    font-feature-settings: 'palt';
+    line-height: 1.95;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  ::selection {
+    background-color: var(--color-rokushou);
+    color: var(--color-paper);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Hero 動画用のオーバーレイ：モバイルとデスクトップで方向を変える
+   モバイルは縦割（上：文字／下：動画）、デスクトップは横割（左：文字／右：動画） */
+@layer utilities {
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(250, 250, 247, 0.88) 0%,
+      rgba(250, 250, 247, 0.78) 50%,
+      rgba(250, 250, 247, 0.45) 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .hero-overlay {
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(250, 250, 247, 0.5) 0%,
+          rgba(250, 250, 247, 0) 160px
+        ),
+        linear-gradient(
+          to right,
+          rgba(250, 250, 247, 0.88) 0%,
+          rgba(250, 250, 247, 0.7) 35%,
+          rgba(250, 250, 247, 0.35) 70%,
+          rgba(250, 250, 247, 0.1) 100%
+        );
+    }
+  }
+}
+

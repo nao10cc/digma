@@ -30,11 +30,15 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* 和文の文節は通常 keep-all で保持しつつ、
+     コンテナに収まらない長文は overflow-wrap: anywhere で折り返す。
+     これにより広い画面では文節維持、狭い画面では mid-char break で横溢れ回避。 */
   h1,
   h2,
-  h3 {
+  h3,
+  .break-keep {
     word-break: keep-all;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
   }
 
   ::selection {

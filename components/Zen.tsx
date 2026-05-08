@@ -30,36 +30,38 @@ export function Zen() {
               <p>
                 また、Z-ENは単なる記事掲載メディアではありません。経営者との接点を生み、継続的な対話を通じて事業内容や課題、志向性、今後実現したいことを蓄積する基盤でもあります。その情報をもとに、必要なタイミングで必要な支援や機会を届けることで、経営者同士、専門人材、支援会社、提携先との新たなつながりを創出していきます。
               </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={400}>
+            <div className="flex flex-col gap-10">
               <a
                 href="https://zen-bizonline.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 mt-4 text-sm tracking-[0.2em] text-rokushou hover:text-navy transition-colors uppercase"
+                className="block self-center md:self-start transition-opacity hover:opacity-80"
+                aria-label="Z-EN を新しいタブで開く"
+              >
+                <Image
+                  src="/images/zen-logo.png"
+                  alt="Z-EN ロゴ"
+                  width={200}
+                  height={297}
+                  className="h-auto w-[160px] md:w-[200px]"
+                  priority={false}
+                />
+              </a>
+              <a
+                href="https://zen-bizonline.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="self-start inline-flex items-center gap-3 text-sm tracking-[0.2em] text-rokushou hover:text-navy transition-colors uppercase"
                 style={{ fontFamily: 'var(--font-serif-en)' }}
               >
                 Visit Z-EN
                 <span aria-hidden="true">→</span>
               </a>
             </div>
-          </FadeIn>
-
-          <FadeIn delay={400}>
-            <a
-              href="https://zen-bizonline.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block transition-opacity hover:opacity-80"
-              aria-label="Z-EN を新しいタブで開く"
-            >
-              <Image
-                src="/images/zen-logo.png"
-                alt="Z-EN ロゴ"
-                width={200}
-                height={297}
-                className="h-auto w-[160px] md:w-[200px]"
-                priority={false}
-              />
-            </a>
           </FadeIn>
         </div>
       </Container>

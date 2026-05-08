@@ -44,7 +44,7 @@ export function Hero() {
         {/* 上：左寄せの大きな英語キャッチ */}
         <div>
           <h1
-            className="text-left text-[clamp(34px,6.5vw,76px)] leading-[1.15] tracking-[-0.01em] text-navy break-keep"
+            className="text-left text-[clamp(28px,7vw,76px)] leading-[1.15] tracking-[-0.01em] text-navy break-keep"
             style={{ fontFamily: 'var(--font-serif-en)', fontWeight: 400 }}
           >
             <LineReveal

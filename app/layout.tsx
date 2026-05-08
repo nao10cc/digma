@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="ja"
       className={`${shipporiMincho.variable} ${notoSansJp.variable} ${cormorantGaramond.variable} ${inter.variable}`}
     >
-      <body>
+      <body className="overflow-x-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}

@@ -49,6 +49,10 @@ export function Nav() {
             if (window.location.pathname === '/') {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
+              // ハッシュ付き URL（#zen 等）から来た場合に URL を / にクリーンアップ
+              if (window.location.hash) {
+                window.history.replaceState(null, '', '/');
+              }
             }
           }}
         >

@@ -2,36 +2,76 @@ import type { Metadata } from 'next';
 import { shipporiMincho, notoSansJp, cormorantGaramond, inter } from '@/lib/fonts';
 import './globals.css';
 
+const SITE_URL = 'https://digma.co.jp';
+const SITE_NAME = '株式会社Digma';
+const SITE_TAGLINE = '人と事業のあいだに、まだ見つかっていない価値がある。';
+const SITE_DESCRIPTION =
+  '株式会社Digmaは、経営者の問いを整理し、課題設計から専門人材・支援会社との接続、実行支援まで一気通貫で伴走する統合型の経営支援会社です。';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: '株式会社Digma | 経営者の問いを整理し、次の一手を形にする',
-    template: '%s | 株式会社Digma',
+    default: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    '株式会社Digmaは、経営者が抱える多様な経営課題に対し、課題の整理、打ち手の設計、必要な専門人材・支援会社との接続までを一気通貫で支援する、統合型の経営支援会社です。',
-  keywords: ['経営支援', 'コンサルティング', '事業開発', 'DX', 'M&A', 'Z-EN', 'Digma'],
+  description: SITE_DESCRIPTION,
+  keywords: [
+    '株式会社Digma',
+    'Digma',
+    '経営支援',
+    'コンサルティング',
+    '事業開発',
+    'DX',
+    'CX',
+    'M&A',
+    '事業承継',
+    '資本戦略',
+    '経営者プラットフォーム',
+    'Z-EN',
+  ],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: '株式会社Digma',
-    description:
-      '人と事業のあいだに埋もれている価値を掘り起こし、次の成長が自然に立ち上がる構造をつくる。',
     type: 'website',
     locale: 'ja_JP',
-    siteName: '株式会社Digma',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: '株式会社Digma',
-    description:
-      '人と事業のあいだに埋もれている価値を掘り起こし、次の成長が自然に立ち上がる構造をつくる。',
+    title: `${SITE_NAME} | ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: '株式会社Digma',
+    name: SITE_NAME,
+    alternateName: 'Digma',
+    url: SITE_URL,
     description: '統合型経営支援会社',
     foundingDate: '2026-02-21',
     founder: {

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Logo } from './ui/Logo';
 
@@ -40,9 +41,9 @@ export function Nav() {
       }`}
     >
       <nav className="max-w-[1120px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
-        <a href="#hero" aria-label="トップへ">
+        <Link href="/" aria-label="ホームへ">
           <Logo dark={darkMode} />
-        </a>
+        </Link>
 
         <ul className="hidden md:flex items-center gap-7">
           {items.map((it) => (

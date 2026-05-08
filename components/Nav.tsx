@@ -41,7 +41,17 @@ export function Nav() {
       }`}
     >
       <nav className="max-w-[1120px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
-        <Link href="/" aria-label="ホームへ">
+        <Link
+          href="/"
+          aria-label="ホームへ"
+          onClick={(e) => {
+            // 同一ページ内ではナビゲーションを抑止してスムーズスクロールに
+            if (window.location.pathname === '/') {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+        >
           <Logo dark={darkMode} />
         </Link>
 
